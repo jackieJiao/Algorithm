@@ -1,0 +1,5 @@
+select *
+from t_company
+INNER JOIN t_tm_info
+ON t_company.company_id=t_tm_info.company_id
+into outfile 'C:\\test.txt';
