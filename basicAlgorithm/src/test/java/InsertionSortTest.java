@@ -4,9 +4,9 @@ import utils.Utils;
 
 public class InsertionSortTest {
     public static void main(String[] args) {
-        Integer [] a= Utils.generateIntArray(10000000);
-        Integer [] b=a;
 
+        Integer [] a= Utils.generateIntArray(10);
+        Integer [] b=a;
         /*for (int x:a
                 ) {
             System.out.print(x+" ");
