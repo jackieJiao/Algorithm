@@ -12,7 +12,7 @@ public class Combinations {
     private static List<String> tmp=new ArrayList<String>();
 
     public static void main(String[] args) {
-        List<String> list = Utils.generateStringList(5);
+        List<String> list = Utils.generateStringList(4);
         int n=2;
 
         combination(tmp,list,n);
