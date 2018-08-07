@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ReverseLinkedList {
     /*
+    * 递归实现：
     * @para head node of the linkedlist
     * @return new head
     *
@@ -29,11 +30,35 @@ public class ReverseLinkedList {
 
     }
 
+
+    /*
+    *非递归实现：
+    * 维护一个循环不变式，loop invariant
+    * 编写循环体，使得每次循坏前进一步
+    *
+    *
+    * */
+    public Node reverseLinkedListWithLoop(Node head) {
+      Node newhead=null;
+      Node currenthead=head;
+      while(currenthead!=null){
+          Node next=currenthead.getNext();
+          currenthead.setNext(newhead);
+          newhead=currenthead;
+          currenthead=next;
+      }
+      return newhead;
+
+    }
+
+
+
     public static void main(String[] args) {
-        List<String> list = Utils.generateStringList(5);
+        List<String> list = Utils.generateStringList(10);
         Node headNode = CreateLinklist.fromListRecursion(list);
         Utils.printLinkedlist(headNode);
-        Utils.printLinkedlist(new ReverseLinkedList().reverseLinkedList(headNode));
+        System.out.println();
+        Utils.printLinkedlist(new ReverseLinkedList().reverseLinkedListWithLoop(headNode));
 
 
     }

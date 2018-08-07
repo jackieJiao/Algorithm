@@ -9,10 +9,10 @@ import java.util.Random;
 public class Utils {
     public static void printLinkedlist(Node headoflist) {
         while(headoflist.getNext()!=null){
-            System.out.println(headoflist.getValue());
+            System.out.print(headoflist.getValue());
             headoflist=headoflist.getNext();
         }
-        System.out.println(headoflist.getValue());
+        System.out.print(headoflist.getValue());
     }
     public static void main(String[] args) {
         Integer a[]=generateIntArray(10);
