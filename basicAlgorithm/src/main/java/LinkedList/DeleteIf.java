@@ -7,12 +7,20 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DeleteIf {
+    public int[] twoSum(int[] nums, int target) {
+        for(int i=0;i<nums.length;i++){
+            for (int j=i;j<nums.length;j++){
+                if(i+j==target){
+                    return new int[]{i,j};
+                }
+            }
+        }
+        return null;
+
+    }
     /*
     * 循环实现
     * */
-
-
-
     public Node deleteifWithLoop(Node head){
         //loop invariant
         Node pre=head;
