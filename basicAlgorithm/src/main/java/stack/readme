@@ -1,0 +1,10 @@
+只能在一段操作的数组，成为栈顶。
+
+LIFO
+
+push
+pop
+peek() 看一下栈顶元素
+
+getsize
+isempty
