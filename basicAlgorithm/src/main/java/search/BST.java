@@ -1,6 +1,15 @@
 package search;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
+
+/*
+* 深度优先遍历------层序遍历
+*
+*
+*
+* */
 
 public class BST<E extends Comparable<E>> {
     /*  root节点  */
@@ -70,7 +79,9 @@ public class BST<E extends Comparable<E>> {
 
 
     }
-    /* 递归遍历 */
+    /*
+    递归遍历
+     */
     public void  preoder(){
         preoder(root);
 
@@ -84,7 +95,9 @@ public class BST<E extends Comparable<E>> {
         preoder(node.right);
 
     }
-    /* 非递归遍历 */
+    /*
+    非递归遍历
+    */
 
     Stack<Node> stack=new Stack<>();
     public void preoderNotR(){
@@ -96,6 +109,24 @@ public class BST<E extends Comparable<E>> {
                 stack.push(p.right);
             if(p.left!=null)
                 stack.push(p.left);
+        }
+    }
+
+
+    /*
+    * 层序遍历（广度优先）
+    * */
+
+    public void levelOrder(){
+        Queue<Node> queue=new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            Node cur=queue.remove();
+            System.out.println(cur.e);
+            if(cur.left!=null)
+                queue.add(cur.left);
+            if(cur.right!=null)
+                queue.add(cur.right);
         }
     }
 

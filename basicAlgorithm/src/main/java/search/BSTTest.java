@@ -10,6 +10,7 @@ public class BSTTest
 
         //bst.preoder();
         System.out.println("#######");
-        bst.preoderNotR();
+        //bst.preoderNotR();
+        bst.levelOrder();
     }
 }
