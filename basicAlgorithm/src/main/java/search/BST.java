@@ -1,5 +1,7 @@
 package search;
 
+import java.util.Stack;
+
 public class BST<E extends Comparable<E>> {
     /*  root节点  */
     private Node root;
@@ -68,7 +70,7 @@ public class BST<E extends Comparable<E>> {
 
 
     }
-
+    /* 递归遍历 */
     public void  preoder(){
         preoder(root);
 
@@ -81,6 +83,20 @@ public class BST<E extends Comparable<E>> {
         preoder(node.left);
         preoder(node.right);
 
+    }
+    /* 非递归遍历 */
+
+    Stack<Node> stack=new Stack<>();
+    public void preoderNotR(){
+        stack.push(root);
+        while (0 != stack.size()){
+            Node p=stack.pop();
+            System.out.println(p.e);
+            if (p.right!=null)
+                stack.push(p.right);
+            if(p.left!=null)
+                stack.push(p.left);
+        }
     }
 
 
