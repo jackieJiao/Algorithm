@@ -5,7 +5,7 @@ import java.util.function.Function;
 
 public class Test09Function {
     public static void main(String[] args) {
-        ThreadLocal
+
         //这个例子讲解Function中compose和andThen的区别
         Test09Function test = new Test09Function();
 

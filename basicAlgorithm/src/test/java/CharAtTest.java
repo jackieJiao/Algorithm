@@ -6,6 +6,9 @@ public class CharAtTest
 {
     public static void main(String[] args) {
         System.out.println('b');
+        char[] ch={'a','A','b','B'};
+        System.out.println();
+
 
     }
     public int uniqueMorseRepresentations(String[] words) {
