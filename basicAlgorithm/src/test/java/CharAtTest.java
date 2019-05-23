@@ -6,6 +6,7 @@ public class CharAtTest
 {
     public static void main(String[] args) {
         System.out.println('b');
+        System.out.println("jiaozhijun");
         char[] ch={'a','A','b','B'};
         System.out.println();
 
@@ -26,4 +27,5 @@ public class CharAtTest
         return set.size();
 
     }
+
 }

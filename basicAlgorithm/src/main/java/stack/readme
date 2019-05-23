@@ -1,10 +1,11 @@
 只能在一段操作的数组，成为栈顶。
 
-LIFO
+LIFO last in first out
 
-push
-pop
-peek() 看一下栈顶元素
+常用方法：：
+    push 入栈
+    pop 出战
+    peek() 看一下栈顶元素
 
 getsize
 isempty
