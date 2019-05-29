@@ -5,8 +5,8 @@ import java.util.Objects;
 /*
 * 循环队列
 *
-* 入队：1.是否满
-* 2.
+* 使得出队的复杂度均摊为O(1);
+*
 *
 * */
 public class LoopQueue<E> implements Queue<E> {
@@ -84,7 +84,7 @@ public class LoopQueue<E> implements Queue<E> {
     @Override
     public String toString(){
         StringBuilder res=new StringBuilder();
-        res.append("Queue:size=%d,capacity=%d\n[",size,data.length);
+        res.append(String.format(" Queue:size=%d, capacity=%d,[",size,getCapacity()));
         for (int i = front;i!=tail; i=(i+1)%data.length) {
             res.append(data[i]);
             if((i+1)%data.length!=tail)

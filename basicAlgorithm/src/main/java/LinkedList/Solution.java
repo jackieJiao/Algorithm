@@ -1,5 +1,16 @@
 package LinkedList;
 
+import java.util.List;
+
+/*
+*
+* Remove Linked List Elements
+*
+* 删除Node，需要找到preNode
+* 由于head节点没有preNode
+* 所以，借用dummyhead
+*
+* */
 class Solution {
     public ListNode removeElements(ListNode head, int val) {
 
@@ -20,9 +31,10 @@ class Solution {
 
 
     public static void main(String[] args) {
-        ListNode head=new ListNode(1);
-
-
-        new Solution().removeElements(head,3);
+       int[] nums={1,3,5,8,5,7};
+        ListNode head=new ListNode(nums);
+        System.out.println(head);
+        new Solution().removeElements(head,5);
+        System.out.println(head);
     }
 }

@@ -1,4 +1,4 @@
-package LinkedList;
+package queue;
 
 /*
  * LinkedList 实现
@@ -135,6 +135,9 @@ public class LinkedList<E> {
 
         retNode.next=null;
         size--;
+
+
+
         return retNode.e;
     }
     public E removeFirst(){
