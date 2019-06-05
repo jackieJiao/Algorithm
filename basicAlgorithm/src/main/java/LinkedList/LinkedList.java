@@ -141,6 +141,33 @@ public class LinkedList<E> {
         return remove(0);
 
     }
+    public void removeEles(E e){
+        //假设链表有很多个元素等于e
+        Node pre=dummyHead;
+        while(pre.next!=null){
+            //找到下一个不等于e的元素cur，pre=cur
+            Node cur=pre.next;
+            while(cur.e.equals(e))
+                cur=cur.next;
+            pre.next=cur;
+            pre=cur;
+
+        }
+
+    }
+    public void removeElement(E e){
+        Node pre=dummyHead;
+        //找到delnode
+        while (pre.next!=null){
+            if (pre.next.e.equals(e))
+                break;
+            pre=pre.next;
+        }
+        Node delNode=pre.next;
+        pre.next= delNode.next;
+        delNode.next=null;
+
+    }
     public E removeLast(){
         return remove(size-1);
     }
@@ -159,6 +186,7 @@ public class LinkedList<E> {
     }
 
     public static void main(String[] args) {
+
         LinkedList<Integer> linkedList = new LinkedList();
         for (int i = 0; i < 5; i++) {
 

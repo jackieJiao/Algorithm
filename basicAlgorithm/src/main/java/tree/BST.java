@@ -152,6 +152,75 @@ public class BST<E extends Comparable<E>> {
     *
     * */
 
+
+    /*
+    * remove
+    * removeMin 向左走，再也走不动了
+    removeMax
+     */
+
+    public E minimum(){
+        if (size==0)
+            throw new IllegalArgumentException("empty");
+
+        return minimum(root).e;
+    }
+
+    private Node minimum(Node node) {
+        if (node.left == null) {
+            return node;
+        }
+        return minimum(node.left);
+    }
+    public E max(){
+        if (size==0)
+            throw new IllegalArgumentException("empty");
+        return max(root).e;
+    }
+
+    private Node max(Node node) {
+        if (node.right == null) {
+            return node;
+        }
+        return max(node.right);
+    }
+    public E removeMax(){
+        E e=max();
+        //recurse removeMax(root)
+        removeMax(root);
+        return e;
+    }
+
+    private Node removeMax(Node node) {
+        //end condition
+        if (node.right == null) {
+            Node leftN = node.left;
+            node.left=null;
+            size--;
+            return leftN;
+        }
+        //-1
+        node.right=removeMax(node.right);
+        return node;
+    }
+
+    public E removeMin(){
+        E e=minimum();
+        removeMin(root);
+
+        return e; }
+
+    private Node removeMin(Node node) {
+        if (node.left == null) {
+            Node right = node.right;
+            node.right=null;
+            size--;
+            return right;
+        }
+        node.left=removeMin(node.left);
+        return node;
+    }
+
     public String toString() {
         StringBuilder res = new StringBuilder();
         generateBSTString(root, 0, res);
@@ -188,7 +257,7 @@ public class BST<E extends Comparable<E>> {
             System.out.println("sfdj" + num);
             bst.add(num);
         }
-        //bst.preOder();
+        bst.preOder();
         bst.preOderNR();
 
     }

@@ -1,18 +1,24 @@
 package set;
 
 import search.BST;
-
+/*
+* BSTSET 基于BST实现Set接口。
+* HashSet 基于Hashmap。
+* */
 public class BSTSet<E extends Comparable<E>> implements Set<E> {
     private BST<E> bst;
-    public BSTSet(){
-        bst=new BST<>();
+
+    public BSTSet() {
+        bst = new BST<>();
     }
+
     @Override
-    public int getSize(){
+    public int getSize() {
         return bst.size();
     }
+
     @Override
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return bst.isEmpty();
     }
 
@@ -20,8 +26,9 @@ public class BSTSet<E extends Comparable<E>> implements Set<E> {
     public boolean contains(E e) {
         return bst.contains(e);
     }
+
     @Override
-    public void add(E e){
+    public void add(E e) {
         bst.add(e);
     }
 
