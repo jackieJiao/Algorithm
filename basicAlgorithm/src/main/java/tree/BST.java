@@ -221,6 +221,52 @@ public class BST<E extends Comparable<E>> {
         return node;
     }
 
+    public void remove(E e){
+        remove(root,e);
+    }
+
+    private Node remove(Node node, E e) {
+        if (node == null) {
+            return null;
+        }
+
+        if (e.compareTo(node.e)<0){
+            node.left=remove(node.left,e);
+            return node;
+        }
+        else if (e.compareTo(node.e)>0){
+            node.right=remove(node.right,e);
+            return node;
+        }
+        else //== keyPoint
+        {
+            //分三种情况，前两种比较简单
+            if (node.left==null){
+                Node rightNode = node.right;
+                node.right=null;
+                size--;
+                return rightNode;
+            }
+            if (node.right==null){
+                Node left = node.left;
+                node.left=null;
+                size--;
+                return left;
+            }
+            /*
+            核心代码！！！
+
+            //hib deltion 左右都不空时，找到比该节点大的最小节点，取代该节点。
+            */
+            Node successor=minimum(node.right);
+            successor.right=removeMin(node.right);
+            successor.left=node.left;
+            //删除当前节点。没用了
+            node.left=node.right=null;
+            return successor;
+        }
+    }
+
     public String toString() {
         StringBuilder res = new StringBuilder();
         generateBSTString(root, 0, res);

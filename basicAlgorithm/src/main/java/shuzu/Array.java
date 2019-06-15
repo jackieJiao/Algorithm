@@ -17,6 +17,14 @@ public class Array<E> {
     public Array(){
         this(10);
     }
+
+    public Array(E[] arr) {
+        data=(E[])new Object[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            data[i]=arr[i];
+        }
+    }
+
     public int getSize(){
         return size;
     }
@@ -26,7 +34,15 @@ public class Array<E> {
     public boolean isEmpty(){
         return size== 0;
     }
+    //maxheap中，交换两个元素的位置。
+    public void swap(int i,int j){
+        if (i<0||i>=size||j<0||j>=size)
+            throw new IllegalArgumentException("index fail");
+        E t=data[i];
+        data[i]=data[j];
+        data[j]=t;
 
+    }
     public void addLast(E e){
 
         /*if(size==data.length)
@@ -96,7 +112,7 @@ public class Array<E> {
         return get(0);
     }
 
-    void set(int index,E e){
+    public void set(int index,E e){
         if(index<0||index>=size)
             throw new IllegalArgumentException("index fail");
         data[index]=e;
