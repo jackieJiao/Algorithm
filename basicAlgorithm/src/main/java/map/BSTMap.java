@@ -86,12 +86,57 @@ public class BSTMap<K extends Comparable<K>,V> implements Map<K,V> {
             node.right=remove(node.right,key);
             return node;
         }
-        else //==
+        else //==  该节点就是我们要删除的节点。
         {
             //最复杂的地方！！！
+            //三种情况
+            if (node.right==null){
+                Node left = node.left;
+                node.left=null;
+                size--;
+                return left;
+            }
+            if (node.left == null) {
+                Node right = node.right;
+                node.right=null;
+                size--;
+                return right;
+            }
+
+            //left right all not null;
+
+            Node suc = min(node.right);
+            suc.right=removeMin(node.right);
+            suc.left=node.left;
+            node.left=node.right=null;
+
+
+            return suc;
+
         }
 
 
+    }
+
+    private Node removeMin(Node node) {
+
+        if (node.left == null) {
+            Node right = node.right;
+            node.right=null;
+            size--;
+            return right;
+        }
+
+        node.left=removeMin(node.left);
+        return node;
+
+    }
+
+    private Node min(Node node) {
+        if (node.left==null)
+            return node;
+
+        return min(node.left);
     }
 
     @Override
