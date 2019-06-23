@@ -101,7 +101,7 @@ public class SegmentTree<E> {
             if (index<0||index>=data.length)
                 throw new IllegalArgumentException("index fail");
              data[index]=e;
-             set(0,0,data.length-1,)
+//             set(0,0,data.length-1,)
         }
 
     public static void main(String[] args) {
