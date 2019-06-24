@@ -23,7 +23,7 @@ public class Utils {
         //int i=r.nextInt(20);
         Integer [] a= new Integer[l];
         for(int i=0;i<a.length;i++){
-            a[i]=r.nextInt(100000);
+            a[i]=r.nextInt(10000);
         }
 
 
