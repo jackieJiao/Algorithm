@@ -4,7 +4,7 @@ import utils.Utils;
 
 public class Main {
     public static void main(String[] args) {
-        Integer[] arr= Utils.generateIntArray(100000);
+        Integer[] arr= Utils.generateIntArray(10);
         Integer[] arr2=new Integer[arr.length];
         Integer[] arr3=new Integer[arr.length];
         Integer[] arr4=new Integer[arr.length];
@@ -12,10 +12,11 @@ public class Main {
         System.arraycopy(arr,0,arr3,0,arr.length);
         System.arraycopy(arr,0,arr4,0,arr.length);
 
-        testSort(arr,new SelectionSort());
-        testSort(arr2,new InsertionSort());
-        testSort(arr3,new InsertionSortPlus());
-        testSort(arr4,new BubbleSort());
+        //testSort(arr,new SelectionSort());
+        //testSort(arr2,new InsertionSort());
+        //testSort(arr3,new InsertionSortPlus());
+        //testSort(arr4,new BubbleSort());
+        //testSort(arr4,new MergeSort());
 
     }
 
