@@ -1,7 +1,9 @@
 package sort;
 
+
 import utils.Utils;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class MergeSort{
@@ -28,12 +30,20 @@ public class MergeSort{
         int i=l;
         int j=mid+1;
         T[] arr1=Arrays.copyOf(arr,arr.length);
-        /* */
+
+        /* doesnt work because Object cant cast to Comparable,T is a Comparable */ //this way works:T[] arr1=(T[]) Array.newInstance(arr.getClass().getComponentType(),arr.length);
+
         //T[] arr1= (T[])new Object[arr.length];
-        //System.arraycopy(arr,0,arr1,0,arr.length);
+        System.arraycopy(arr,0,arr1,0,arr.length);
 
         for (int k = l; k <=r; k++) {
-            if (arr1[i].compareTo(arr1[j])<0&&i<=mid)
+            if (i>mid){
+                arr[k]=arr1[j++];
+            }
+            else if (j>r)
+                arr[k]=arr1[i++];
+
+            else if (arr1[i].compareTo(arr1[j])<0)
                 arr[k]=arr1[i++];
             else
                 arr[k]=arr1[j++];
@@ -42,7 +52,7 @@ public class MergeSort{
     }
 
     public static void main(String[] args) {
-        Integer[] arr= Utils.generateIntArray(10);
+        Integer[] arr= Utils.generateIntArray(1000);
         System.out.println(Arrays.toString(arr)
         );
         new MergeSort().sort(arr);
