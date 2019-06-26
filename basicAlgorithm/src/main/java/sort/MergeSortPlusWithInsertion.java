@@ -3,10 +3,9 @@ package sort;
 
 import utils.Utils;
 
-
 import java.util.Arrays;
 
-public class MergeSort implements Sort{
+public class MergeSortPlusWithInsertion implements Sort{
 
 
     @Override
@@ -16,8 +15,17 @@ public class MergeSort implements Sort{
     private <T extends Comparable<? super T>> void sort(T[] arr, int l, int r) {
 
         //finalConditon
-        if (l==r)
+        /*if (l==r)
+            return;*/
+        if ((r-l)<=15){
+            for (int i = l+1; i < r+1; i++) {
+                for (int j=i;j>l&&arr[j].compareTo(arr[j-1])<0;j--){
+                    swap(arr,j,j-1);
+                }
+            }
             return;
+        }
+
 
         int mid=l+(r-l)/2;
         sort(arr,l,mid);
@@ -25,6 +33,12 @@ public class MergeSort implements Sort{
 
         //左半部分、右半部分分别排序好。然后合并
         merge(arr,l,mid,r);
+    }
+
+    private <T extends Comparable<? super T>> void swap(T[] arr, int i, int maxIndex) {
+        T temp=arr[i];
+        arr[i]=arr[maxIndex];
+        arr[maxIndex]=temp;
     }
     private <T extends Comparable<? super T>>  void merge(T[] arr, int l, int mid, int r) {
         /* 复制一份数组，设置三个索引位置。logN merge完成*/
@@ -56,7 +70,7 @@ public class MergeSort implements Sort{
         Integer[] arr= Utils.generateIntArray(1000);
         System.out.println(Arrays.toString(arr)
         );
-        new MergeSort().sort(arr);
+        new MergeSortPlusWithInsertion().sort(arr);
         System.out.println(Arrays.toString(arr)
         );
 
