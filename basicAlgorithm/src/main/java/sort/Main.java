@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Integer[] arr= Utils.generateIntArray(10000);
+        Integer[] arr= Utils.generateIntArray(10);
         Integer[] arr2=new Integer[arr.length];
         Integer[] arr3=new Integer[arr.length];
         Integer[] arr4=new Integer[arr.length];
@@ -19,8 +19,8 @@ public class Main {
         //testSort(arr,new SelectionSort());
        // testSort(arr2,new InsertionSort());
         //testSort(arr3,new InsertionSortPlus());
-        testSort(arr5,new MergeSort());
-        testSort(arr4,new MergeSortPlusWithInsertion());
+//        testSort(arr5,new MergeSort());
+        testSort(arr4,new QuickSort3Way());
 
 
     }
