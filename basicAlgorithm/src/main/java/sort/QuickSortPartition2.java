@@ -2,7 +2,7 @@ package sort;
 
 import java.util.Random;
 
-public class QuickSort implements Sort{
+public class QuickSortPartition2 implements Sort{
 
 
     /* 方法入口*/
@@ -43,18 +43,27 @@ public class QuickSort implements Sort{
         int randomInt = random.nextInt(r);
         swap(arr,l,randomInt%(r-l+1)+l);
         T temp=arr[l];
-        int j=l;
-        for (int i=l+1;i<=r;i++){
-            /*if (arr[i].compareTo(temp)>=0)
-                continue;*/
-            if (arr[i].compareTo(temp)<0){
-                //i,j 互换，j++
-                swap(arr,j+1,i);
-                j++;
-            }
+        /*
+        * partition2 优化：
+        *
+        * 解决了重复元素过多情况，左右两边不平衡的问题。
+        *
+        * 这样和temp相同的元素，会均匀的分布在左右两边。
+        * */
+        //arr[l+1...i)<=temp  arr(j...r]>=temp;
+        int i=l+1,j=r;
+        while(true){
+            while(i<=r && arr[i].compareTo(temp)<0) i++;
+            while(j>=l+1 && arr[j].compareTo(temp)>0) j--;
+            if (i>j) break;
+            swap(arr,i,j);
+            i++;
+            j--;
         }
         swap(arr,l,j);
         return j;
+
+
     }
 
 
@@ -63,11 +72,5 @@ public class QuickSort implements Sort{
         T temp=arr[i];
         arr[i]=arr[maxIndex];
         arr[maxIndex]=temp;
-    }
-
-    public static void main(String[] args) {
-        Random random = new Random();
-        int randomInt = random.nextInt(1000);
-        System.out.println(randomInt);
     }
 }
