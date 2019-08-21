@@ -23,9 +23,31 @@ Could you come up with a one-pass algorithm using only constant space?
 public class Z75_SortColor {
     public static void main(String[] args) {
         int[] nums={2,0,2,1,1,0};
-        new Z75_SortColor().sortColors(nums);
+        new Z75_SortColor().sortColors3Ways(nums);
         System.out.println(Arrays.toString(nums));
     }
+
+    private void sortColors3Ways(int[] nums) {
+        int l=-1,i=0,r=nums.length;
+        while (i<r){
+            assert(nums[i]>=0&&nums[i]<=2);
+            if (2==nums[i]){
+                swap(nums,i,--r);
+            }else if (1==nums[i]){
+                i++;
+            }else {
+                swap(nums,i,++l);
+                i++;
+            }
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp=nums[j];
+        nums[j]=nums[i];
+        nums[i]=temp;
+    }
+
 
     public void sortColors(int[] nums) {
         int[] count=new int[3];
