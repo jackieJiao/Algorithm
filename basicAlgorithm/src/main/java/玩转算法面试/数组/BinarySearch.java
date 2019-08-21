@@ -28,7 +28,7 @@ public class BinarySearch<T extends Comparable<? super T>> {
 
 
         MessageDigest md5 = MessageDigest.getInstance("MD5");
-        System.out.println(md5.);
+        System.out.println(md5);
 
     }
 }
