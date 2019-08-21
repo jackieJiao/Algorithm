@@ -44,4 +44,10 @@ public class DenseGraph {
         assert w >= 0 && w < n ;
         return g[v][w];
     }
+
+    public static void main(String[] args) {
+        boolean[] a=new boolean[10];
+
+        System.out.println(a[0]);
+    }
 }

@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         Integer[] arr= Utils.generateIntArray(100000);
+//        Integer[] arr={1,2,3,4,5,6};
         Integer[] arr2=new Integer[arr.length];
         Integer[] arr3=new Integer[arr.length];
         Integer[] arr4=new Integer[arr.length];
@@ -20,16 +21,16 @@ public class Main {
        // testSort(arr2,new InsertionSort());
         //testSort(arr3,new InsertionSortPlus());
         //testSort(arr5,new MergeSort());
-//        testSort(arr4,new MergeSortPlusWithInsertion());
-        testSort(arr5,new QuickSortPartition2());
+        testSort(arr4,new BubbleSort());
+        testSort(arr5,new BubbleSortPlus());
 
     }
 
     private static void testSort(Integer[] arr, Sort sorter) {
         long start=System.nanoTime();
-        System.out.println(Arrays.toString(arr));
+        //System.out.println(Arrays.toString(arr));
         sorter.sort(arr);
-        System.out.println(Arrays.toString(arr));
+        //System.out.println(Arrays.toString(arr));
 
         System.out.println(sorter.getClass().getName()+"Time:"+(System.nanoTime()-start)/1000000);
     }
